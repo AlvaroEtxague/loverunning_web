@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Open+Sans:wght@300&family=Oswald:wght@300;400&display=swap');
 
+/* GENERAL SETTINGS */
+:root {
+  --dark-color: #2f3640;
+  --light-color: #f5f6fa;
+  --primary-color: #192a56;
+  --secondary-color: #718093;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -8,15 +16,16 @@
 
 body {
   font-family: 'Lato', sans-serif;
-  color: #777777;
+  color: var(--secondary-color);
 }
 
+/* HEADER */
 h2 {
   font-family: 'Oswald', sans-serif;
   line-height: 1.6;
   text-transform: uppercase;
   letter-spacing: 4px;
-  color: #555555;
+  color: var(--primary-color);
 }
 
 #logo {
@@ -47,17 +56,18 @@ h2 {
 }
 
 #menu a:hover {
-  border-bottom: 1px solid #777777;
+  border-bottom: 1px solid var(--secondary-color);
 }
 
 .active {
-  border-bottom: 1px solid #777777;
+  border-bottom: 1px solid var(--secondary-color);
 }
 
+/*-- HERO IMAGE & TEXT OVERLAY --*/
 #hero-image {
-  height: 600px;
+  height: 60vh;
   width: 100%;
-  background: url('../images/004.jfif') no-repeat center center;
+  background: url('../images/004.jfif') no-repeat center center/cover;
   animation-name: hero-zoom;
   animation-duration: 5s;
   animation-fill-mode: forwards;
@@ -81,7 +91,7 @@ h2 {
 
 #cover-text,
 #cover-text h2 {
-  color: white;
+  color: var(--light-color);
 }
 
 #cover-text {
@@ -101,8 +111,11 @@ h2 {
   position: absolute;
 }
 
+/*-- REASONS FOR RUNNING --*/
 #club-ethos {
-  height: 600px;
+  height: 550px;
+  padding: 30px;
+  margin-bottom: 50px;
 }
 
 #left-about {
@@ -124,25 +137,25 @@ h2 {
 }
 
 hr {
-  border-top: 1px solid #777777;
+  border-top: 1px solid var(--secondary-color);
   width: 100%;
   margin: 5px 0;
 }
 
 .left-about-heading {
-  width: 50%;
+  width: 90%;
   float: right;
-  line-height: 20px;
+  line-height: 25px;
   clear: both;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
 .right-about-heading {
-  width: 50%;
+  width: 90%;
   float: left;
-  line-height: 20px;
+  line-height: 25px;
   clear: both;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
 .right-about-heading h2 {
@@ -177,6 +190,7 @@ hr {
   margin: 0 auto;
 }
 
+/*-- RUNNING LOCATIONS, DISTANCES AND TIMES--*/
 #times {
   background: url('../images/003.jfif') no-repeat center center/cover;
   width: 100%;
@@ -184,7 +198,7 @@ hr {
 }
 
 #times div {
-  color: #fafafa;
+  color: var(--light-color);
   height: 300px;
   width: 19.5%;
   background-color: rgba(0, 0, 0, 0.6);
@@ -198,6 +212,7 @@ hr {
   color: #fafafa;
 }
 
+/* FOOTER & SOCIAL LINKS */
 footer {
   height: 150px;
 }
@@ -214,7 +229,7 @@ footer {
   font-size: 160%;
   margin: 1%;
   padding: 5%;
-  color: #777777;
+  color: var(--primary-color);
 }
 
 #photo {
@@ -228,7 +243,7 @@ footer {
   width: 100%;
 }
 
-/* form */
+/* FORM */
 .form-section {
   clear: left;
   background: url('../images/005.jfif');
@@ -286,13 +301,14 @@ footer {
   color: #f16c6b;
 }
 
-/*end form*/
-
-@media screen and {
+/* MOBILE */
+/* ipad size */
+@media (max-width: 769px) {
   #club-ethos {
-    width: 65%;
-    height: 1200px;
+    width: 100%;
+    height: 100%;
     margin: 0 auto;
+    padding: 30px;
   }
 
   #welcome {
@@ -301,17 +317,28 @@ footer {
   }
 
   #left-about,
-  #right-about {
+  #right-about,
+  #center-about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     float: left;
-    padding: 0;
+    padding-top: 0;
+  }
+
+  .left-about-heading h2,
+  .left-about-heading p,
+  .right-about-heading h2,
+  .right-about-heading p {
+    text-align: center;
+    width: 80%;
+    margin: auto;
   }
 
   #center-about {
-    clear: both;
-    width: 100%;
-    float: left;
-    padding: 0;
+    margin: 0 0 30px 0;
   }
 
   hr {
@@ -323,53 +350,61 @@ footer {
     clear: both;
     height: 150%;
     border-bottom: 1px solid #fff;
-    padding: 0;
+    padding: 30px;
+  }
+
+  footer {
+    height: 100%;
   }
 }
 
-@media screen and (max-width: 940px) {
+/* small iphone size */
+@media (max-width: 414px) {
+  #logo,
   #menu {
-    clear: left;
-    float: left;
-    margin-left: 30px;
-    margin-bottom: 20px;
-    line-height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  #menu {
+    font-size: 90%;
+    letter-spacing: 2px;
+  }
+
+  #hero-outer {
+    height: 100%;
   }
 
   #cover-text {
-    left: 0px;
+    font-size: 80%;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    width: 200px;
+    height: 150px;
+    padding: 30px 15px;
+    text-align: center;
+
+    background-color: rgba(241, 109, 107, 0.7);
+
+    bottom: 0;
+    left: 0;
+    position: absolute;
   }
 
-  #club-ethos {
-    width: 90%;
-    height: 1200px;
+  #welcome {
+    font-size: 200%;
+  }
+
+  #circle-container {
+    width: 200px;
+    height: 200px;
+    padding: 20px;
     margin: 0 auto;
-  }
-
-  .left-about-heading,
-  .right-about-heading {
-    width: inherit;
-  }
-
-  .left-about-heading h2,
-  .right-about-heading h2 {
-    width: 100%;
-    text-align: center;
-  }
-
-  .left-about-heading p,
-  .right-about-heading p {
-    text-align: center;
-    padding: 0 20px;
-  }
-
-  #photo {
-    column-count: 3;
-  }
-}
-
-@media screen and (max-width: 750px) {
-  #photo {
-    column-count: 2;
   }
 }
