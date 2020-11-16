@@ -1,2 +1,2 @@
 # loverunning_web
-html &amp; css project
+A responsive website created with HTML5 & CSS3
